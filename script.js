@@ -1,3 +1,4 @@
+alert("JS carregou");
 let transacoes = [];
 const descricaoTransacao = document.getElementById("descricaoTransacao");
 const valorTransacao = document.getElementById("valorTransacao");
