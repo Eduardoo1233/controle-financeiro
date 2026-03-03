@@ -4,10 +4,12 @@ const valorTransacao = document.getElementById("valorTransacao");
 const btnEnviarInformacoes = document.getElementById("enviarDadosDaTransacao");
 
 function salvarTransacao() {
-    transacoes = [{
-        descricao: "descricaoTransacao", valor: "valorTransacao"
-    }];
-    conosole.log(transacoes);
-};
+    const novaTransacao = {
+        descricao: descricaoTransacao.value,
+        valor: valorTransacao.value
+    };
+    transacoes.push(novaTransacao);
+    document.getElementById("debug").textContent = "Total de Transações: " + transacoes.length;
+}
 
 btnEnviarInformacoes.addEventListener("click", salvarTransacao);
