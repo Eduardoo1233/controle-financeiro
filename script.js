@@ -1,8 +1,17 @@
-alert("JS carregou");
 let transacoes = [];
 const descricaoTransacao = document.getElementById("descricaoTransacao");
 const valorTransacao = document.getElementById("valorTransacao");
 const btnEnviarInformacoes = document.getElementById("enviarDadosDaTransacao");
+
+function renderizar() {
+    const ul = document.getElementById("listaDeTransacoes");
+    ul.innerHTML = "";
+    transacoes.forEach(transacao => {
+        const li = document.createElement("li");
+        li.textContent = "Descrição da Transação: " + transacao.descricao + "R$" + transacao.valor;
+        ul.appendChild(li);
+    });
+}
 
 function salvarTransacao() {
     const novaTransacao = {
@@ -10,7 +19,7 @@ function salvarTransacao() {
         valor: valorTransacao.value
     };
     transacoes.push(novaTransacao);
-    document.getElementById("debug").textContent = "Total de Transações: " + transacoes.length;
+    renderizar();
 }
 
 btnEnviarInformacoes.addEventListener("click", salvarTransacao);
